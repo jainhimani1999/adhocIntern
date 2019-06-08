@@ -1,0 +1,1 @@
+This directory contains assingments of python program performed during my intern class.
