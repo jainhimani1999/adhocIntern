@@ -3,7 +3,7 @@ file = open("file.txt", "r")
 #print(file.read())
 
 #for cat -E command
-'''for line in file:
+for line in file:
     print(line.strip() + "$")
 
 #for cat -n command
@@ -12,7 +12,7 @@ for line in file:
     print(str(count)+line.strip())
     count+=1
 #for output redirection cat file > file1
-'''
+
 location = input('Enter the file to be overwritten')
 file2 = open(location,"w")
 file2.write(file.read())
