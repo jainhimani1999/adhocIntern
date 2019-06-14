@@ -1,22 +1,19 @@
-import pyqrcode
-from pyqrcode import QRCode
-import webbrowser
+import qrcode
 from googlesearch import search
-
-
 data=input('Enter the website')
-url=[]
-webbrowser.open_new_tab('https://www.google.com/search?q='+data)
+url=[]                                                                                                                           
+f=open('/var/www/html/a.html','a')
 for i in search(data,num=3,stop=3):
-    print(i)
-    url.append(i)
-
-# Generate QR code
-for j in url:
-    pyqrcode.create(j)
-    print('sucess')
-
-# Create and save the png file naming "myqr.png"
-'''url.svg("myqr.svg", scale = 8)
-f=open('myqr.svg','r')
-print(f.read())'''
+        print(i)
+        url.append(i)                                                                                                            
+# Generate QR code 
+i=1
+for j in url:                                                                                                                    
+        image=qrcode.make(j)                                                                                                     
+        print('sucess')                                                                                                          
+        with open("/var/www/html/"+data+str(i)+".png",'wb') as k:
+                image.save(k)                                                                                                    
+        f.write('<img src="'+data+str(i)+".png"+'">')
+        i+=1
+f.close()                                                                                                                        
+                                                                                                                         
